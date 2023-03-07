@@ -27,14 +27,14 @@ RSpec.describe 'Plots Index Page' do
       visit '/plots'
 
       within("#plot-#{plot1.id}") do
-        expect(page).to have_content(plot1.number)
+        expect(page).to have_content("Plot number: #{plot1.number}")
         expect(page).to have_content(plant1.name)
         expect(page).to have_content(plant2.name)
         expect(page).to have_content(plant3.name)
       end
 
       within("#plot-#{plot2.id}") do
-        expect(page).to have_content(plot2.number)
+        expect(page).to have_content("Plot number: #{plot2.number}")
         expect(page).to have_content(plant1.name)
         expect(page).to have_content(plant2.name)
 
@@ -42,7 +42,7 @@ RSpec.describe 'Plots Index Page' do
       end
 
       within("#plot-#{plot3.id}") do
-        expect(page).to have_content(plot3.number)
+        expect(page).to have_content("Plot number: #{plot3.number}")
         expect(page).to have_content(plant3.name)
 
         expect(page).to_not have_content(plant1.name)

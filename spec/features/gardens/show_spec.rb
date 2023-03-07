@@ -31,8 +31,8 @@ RSpec.describe 'Gardens show Page' do
       visit "/gardens/#{garden1.id}"
       
       expect(page).to have_content("Plants in #{garden1.name}")
-      expect(page).to have_content(plant1.name)
-      expect(page).to have_content(plant3.name)
+      expect(page).to have_content(plant1.name).once
+      expect(page).to have_content(plant3.name).once
 
       expect(page).to_not have_content(plant2.name)
     end

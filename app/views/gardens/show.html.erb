@@ -1,4 +1,4 @@
 <h1>Plants in <%=@garden.name%></h1>
-<%@garden.plants.each do |plant|%>
+<%@garden.unique_plants_under_100_harvest.each do |plant|%>
 <h2><%= plant.name %></h2>
 <%end%>

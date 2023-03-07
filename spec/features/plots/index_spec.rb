@@ -49,5 +49,23 @@ RSpec.describe 'Plots Index Page' do
         expect(page).to_not have_content(plant2.name)
       end
     end
+
+    describe "next to seach plant name is a link to remove that plant from that plot" do
+      it 'when I click link, i am redirected back to plots index page and no longer see that plant listed under that plot but still see it under other plots assoicated with it' do
+        visit '/plots'
+        within("#plot-#{plot1.id}") do
+          expect(page).to have_link("Remove #{plant1.name}")
+
+          click_link("Remove #{plant1.name}")
+          expect(current_path).to eq('/plots')
+          expect(page).to_not have_content(plant1.name)
+        end
+
+        within("#plot-#{plot2.id}") do
+          expect(page).to have_content(plant1.name)
+        end
+
+      end
+    end
   end
 end
